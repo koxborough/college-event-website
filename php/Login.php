@@ -14,13 +14,42 @@ else
 
     $result = $stmt->get_result();
     
-    if ($row = $result->fetch_assoc())
+    if (!($row = $result->fetch_assoc()))
     {
-        returnWithInfo($row["userId"], $row["name"], $row["university"]);
+        returnWithError("Error: Username/Password Incorrect");
     }
     else
     {
-        returnWithError("Error: Username/Password Incorrect");
+        $supad = $conn->prepare("SELECT COUNT(*) AS isSuperAdmin FROM superadmins WHERE userId=?");
+        $supad->bind_param("i", $row["userId"]);
+        $supad->execute();
+
+        $res_supad = $supad->get_result();
+        $row_supad = $res_supad->fetch_assoc();
+        if ($row_supad["isSuperAdmin"])
+        {
+            returnWithInfo($row["userId"], $row["name"], $row["university"], "SuperAdmin");
+            $supad->close();
+        }
+        else
+        {
+            $ad = $conn->prepare("SELECT COUNT(*) AS isAdmin FROM admins WHERE userId=?");
+            $ad->bind_param("i", $row["userId"]);
+            $ad->execute();
+    
+            $res_ad = $ad->get_result();
+            $row_ad = $res_ad->fetch_assoc();
+            if ($row_ad["isAdmin"])
+            {
+                returnWithInfo($row["userId"], $row["name"], $row["university"], "Admin");
+            }
+            else
+            {
+                returnWithInfo($row["userId"], $row["name"], $row["university"], "Student");
+            }
+            $supad->close();
+            $ad->close();
+        }
     }
 
     $stmt->close();
@@ -44,9 +73,9 @@ function returnWithError($error)
     sendResultInfoAsJson($retValue);
 }
 
-function returnWithInfo($userId, $name, $university)
+function returnWithInfo($userId, $name, $university, $type)
 {
-    $retValue = '{"userId":' . $userId . ',"name":"' . $name . '","university":"' . $university . '"}';
+    $retValue = '{"userId":' . $userId . ',"name":"' . $name . '","university":"' . $university . '","type":"' . $type . '"}';
     sendResultInfoAsJson($retValue);
 }
 ?>
