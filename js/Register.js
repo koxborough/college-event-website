@@ -47,16 +47,10 @@ function doRegister()
             }
             else
             {
+                sessionStorage.setItem("userRegistered", "true");
                 window.location.href = "index.html";
             }
         }
     };
     xhr.send(JSON.stringify(data));
-}
-
-function errorMessage(error)
-{
-    let loginResult = document.getElementById("regResult");
-    loginResult.style.color = "red";
-    loginResult.innerHTML = error;
 }

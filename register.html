@@ -3,9 +3,9 @@
     <head>
         <title>Register</title>
         <script type="text/javascript" src="js/Register.js"></script>
-        <script type="text/javascript" src="js/EnterKey.js"></script>
+        <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
-    <body onload="pressEnter(['regName', 'regUniv','regUsername', 'regPassword'], 'regButton');">
+    <body>
         <label>Name</label>
         <input id="regName" type="text" placeholder="Name" maxlength="30" autofocus />
         <br />
@@ -21,4 +21,8 @@
         <button id="regButton" onclick="doRegister();">Register</button>
         <button onclick="window.location.href='index.html'">Go Back</button>
     </body>
+    <script>
+        pressEnter(['regName', 'regUniv','regUsername', 'regPassword'], 'regButton');
+        sessionStorage.setItem("lineId", "regResult");
+    </script>
 </html>

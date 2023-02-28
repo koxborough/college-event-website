@@ -40,10 +40,3 @@ function doLogin()
     };
     xhr.send(JSON.stringify(data));
 }
-
-function errorMessage(error)
-{
-    let loginResult = document.getElementById("loginResult");
-    loginResult.style.color = "red";
-    loginResult.innerHTML = error;
-}

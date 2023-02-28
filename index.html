@@ -3,9 +3,9 @@
     <head>
         <title>Login</title>
         <script type="text/javascript" src="js/Login.js"></script>
-        <script type="text/javascript" src="js/EnterKey.js"></script>
+        <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
-    <body onload="pressEnter(['loginUsername', 'loginPassword'], 'loginButton');">
+    <body>
         <label>Username</label>
         <input id="loginUsername" type="text" placeholder="Username" maxlength="20" autofocus />
         <br />
@@ -15,4 +15,9 @@
         <button id="loginButton" onclick="doLogin();">Sign In</button>
         <button onclick="window.location.href='register.html';">Don't have an account? Register</button>
     </body>
+    <script>
+        pressEnter(['loginUsername', 'loginPassword'], 'loginButton');
+        sessionStorage.setItem("lineId", "loginResult");
+        userRegistered();
+    </script>
 </html>
