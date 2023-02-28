@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <script type="text/javascript" src="js/Register.js"></script>
+        <script type="text/javascript" src="js/EnterKey.js"></script>
+    </head>
+    <body onload="pressEnter(['regName', 'regUniv','regUsername', 'regPassword'], 'regButton');">
+        <label>Name</label>
+        <input id="regName" type="text" placeholder="Name" maxlength="30" autofocus />
+        <br />
+        <label>University</label>
+        <input id="regUniv" type="text" placeholder="University" maxlength="50" />
+        <br />
+        <label>Username</label>
+        <input id="regUsername" type="text" placeholder="Username" maxlength="20" />
+        <br />
+        <label>Password</label>
+        <input id="regPassword" type="password" placeholder="Password" maxlength="20" />
+        <span id="regResult"></span>
+        <button id="regButton" onclick="doRegister();">Register</button>
+        <button onclick="window.location.href='index.html'">Go Back</button>
+    </body>
+</html>
