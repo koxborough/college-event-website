@@ -3,14 +3,15 @@
     <head>
         <title>Login</title>
         <script type="text/javascript" src="js/Login.js"></script>
+        <script type="text/javascript" src="js/EnterKey.js"></script>
     </head>
-    <body>
+    <body onload="pressEnter(['loginUsername', 'loginPassword'], 'loginButton');">
         <label>Username</label>
         <input id="loginUsername" type="text" placeholder="Username" maxlength="20" autofocus />
         <br />
         <label>Password</label>
         <input id="loginPassword" type="password" placeholder="Password" maxlength="20" />
         <span id="loginResult"></span>
-        <button onclick="doLogin();">Sign In</button>
+        <button id="loginButton" onclick="doLogin();">Sign In</button>
     </body>
 </html>
