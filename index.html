@@ -19,5 +19,9 @@
         pressEnter(['loginUsername', 'loginPassword'], 'loginButton');
         sessionStorage.setItem("lineId", "loginResult");
         userRegistered();
+        if (sessionStorage.getItem("userRegistered") !== null)
+        {
+            sessionStorage.removeItem("userRegistered");
+        }
     </script>
 </html>
