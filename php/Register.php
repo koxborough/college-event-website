@@ -26,11 +26,26 @@ else
     }
     else
     {
-        $stmt = $conn->prepare("INSERT INTO Users (name, university, username, password) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $name, $university, $username, $password);
-        $stmt->execute();
-        $stmt->close();
-        returnWithoutError();
+        $univ = $conn->prepare("SELECT COUNT(DISTINCT name) AS univExists FROM Universities WHERE UPPER(name)=UPPER(?)");
+        $univ->bind_param("s", $university);
+        $univ->execute();
+
+        $univ_res = $univ->get_result();
+        $univ_row = $univ_res->fetch_assoc();
+
+        if (!$univ_row["univExists"])
+        {
+            returnWithError("Error: University Does Not Exist");
+        }
+        else
+        {
+            $stmt = $conn->prepare("INSERT INTO Users (name, university, username, password) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $name, $university, $username, $password);
+            $stmt->execute();
+            $stmt->close();
+            returnWithoutError();
+        }
+        $univ->close();
     }
     $test->close();
     $conn->close();
