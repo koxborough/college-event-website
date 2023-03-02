@@ -13,16 +13,7 @@ function getAllEvents()
     {
         if (xhr.readyState === 4 && xhr.status === 200) 
         {
-            let response;
-            try 
-            {
-                response = JSON.parse(xhr.responseText);
-            }
-            catch(e)
-            {
-                alert(xhr.responseText);
-            }
-            
+            let response = JSON.parse(xhr.responseText);
             if ("error" in response)
             {
                 let table = document.getElementById("table");
