@@ -34,3 +34,13 @@ function prettyDate(date)
 {
     return `${date.substring(5, 7)}/${date.substring(8)}/${date.substring(0, 4)}`;
 }
+
+function capitalize(string)
+{
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function targetedCapitalize(string)
+{
+    return (string.substring(0, 4) === "univ") ? `University ${string.substring(4)}` : `RSO ${string.substring(3)}`;
+}
