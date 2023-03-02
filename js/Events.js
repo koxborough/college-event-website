@@ -62,3 +62,9 @@ function viewMore(eventId)
     sessionStorage.setItem("eventId", eventId);
     window.location.href = "eventPost.html";
 }
+
+function doLogout()
+{
+    sessionStorage.removeItem("user");
+    window.location.href = "index.html";
+}
