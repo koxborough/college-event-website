@@ -59,7 +59,7 @@ function fillTable(eventList)
 		let cell4 = row.insertCell(3);
         let cell5 = row.insertCell(4);
 		cell1.innerHTML = event.title;
-        cell2.innerHTML = event.date;
+        cell2.innerHTML = prettyDate(event.date);
 		cell3.innerHTML = event.category;
 		cell4.innerHTML = event.type;
 		cell5.innerHTML = `<button type="button" onclick="viewMore(${event.eventId})">View More</button>`;

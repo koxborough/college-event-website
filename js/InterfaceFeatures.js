@@ -29,3 +29,8 @@ function userRegistered()
         line.innerHTML = "User Successfully Registered!";
     }
 }
+
+function prettyDate(date)
+{
+    return `${date.substring(5, 7)}/${date.substring(8)}/${date.substring(0, 4)}`;
+}
