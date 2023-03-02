@@ -25,7 +25,7 @@ else
             $searchResults .= ",";
         }
         $searchCount++;
-        $searchResults .= '{"eventId":'.$row["eventId"].',"title":"'.$row["title"].'","category":"'.$row["category"].'","type":"'.$row["type"].'"}';
+        $searchResults .= '{"eventId":'.$row["eventId"].',"title":"'.$row["title"].'","date":"'.$row["date"].'","category":"'.$row["category"].'","type":"'.$row["type"].'"}';
     }
     
     if( $searchCount == 0 )

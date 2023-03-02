@@ -13,11 +13,21 @@ function getAllEvents()
     {
         if (xhr.readyState === 4 && xhr.status === 200) 
         {
-            alert(xhr.responseText);
-            let response = JSON.parse(xhr.responseText);
+            let response;
+            try 
+            {
+                response = JSON.parse(xhr.responseText);
+            }
+            catch(e)
+            {
+                alert(xhr.responseText);
+            }
+            
             if ("error" in response)
             {
-                let caption = document.getElementById("table").createCaption();
+                let table = document.getElementById("table");
+                table.innerHTML = "";
+                let caption = table.createCaption();
                 caption.innerHTML = response.error;
             }
             else
@@ -47,10 +57,12 @@ function fillTable(eventList)
 		let cell2 = row.insertCell(1);
 		let cell3 = row.insertCell(2);
 		let cell4 = row.insertCell(3);
+        let cell5 = row.insertCell(4);
 		cell1.innerHTML = event.title;
-		cell2.innerHTML = event.category;
-		cell3.innerHTML = event.type;
-		cell4.innerHTML = `<button type="button" onclick="viewMore(${event.eventId})">View More</button>`;
+        cell2.innerHTML = event.date;
+		cell3.innerHTML = event.category;
+		cell4.innerHTML = event.type;
+		cell5.innerHTML = `<button type="button" onclick="viewMore(${event.eventId})">View More</button>`;
 	}
 }
 
