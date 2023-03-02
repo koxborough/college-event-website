@@ -12,8 +12,8 @@
         <label>Password</label>
         <input id="loginPassword" type="password" placeholder="Password" maxlength="20" />
         <span id="loginResult"></span>
-        <button id="loginButton" onclick="doLogin();">Sign In</button>
-        <button onclick="window.location.href='register.html';">Don't have an account? Register</button>
+        <button type="button" loginButton" onclick="doLogin();">Sign In</button>
+        <button type="button" onclick="window.location.href='register.html';">Don't have an account? Register</button>
     </body>
     <script>
         pressEnter(['loginUsername', 'loginPassword'], 'loginButton');

@@ -18,8 +18,8 @@
         <label>Password</label>
         <input id="regPassword" type="password" placeholder="Password" maxlength="20" />
         <span id="regResult"></span>
-        <button id="regButton" onclick="doRegister();">Register</button>
-        <button onclick="window.location.href='index.html'">Go Back</button>
+        <button type="button" id="regButton" onclick="doRegister();">Register</button>
+        <button type="button" onclick="window.location.href='index.html';">Go Back</button>
     </body>
     <script>
         pressEnter(['regName', 'regUniv','regUsername', 'regPassword'], 'regButton');
