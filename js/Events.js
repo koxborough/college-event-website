@@ -63,10 +63,12 @@ function checkPrivileges()
     if (user.type === "Admin")
     {
         document.getElementById("rsoCreation").hidden = false;
+        document.getElementById("createPubEvent").hidden = false;
     }
     if (user.type === "SuperAdmin")
     {
         document.getElementById("univCreation").hidden = false;
+        document.getElementById("createPubEvent").hidden = false;
     }
 }
 
