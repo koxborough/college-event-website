@@ -8,12 +8,14 @@
     <body>
         <ul id="navbar">
             <li><a href="rsoList.html">See RSO Membership</a></li>
+            <li id="rsoCreation" hidden><a href="createRSO.html">Create an RSO</a></li>
             <li><a href="#" onclick="doLogout();">Logout</a></li>
         </ul>
         <table id="table">
             <thead>
                 <tr>
                     <th>Title</th>
+                    <th>Date</th>
                     <th>Category</th>
                     <th>Type</th>
                     <th>More Info</th>
@@ -23,5 +25,6 @@
     </body>
     <script>
         getAllEvents();
+        checkPrivileges();
     </script>
 </html>

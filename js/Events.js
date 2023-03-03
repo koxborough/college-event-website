@@ -53,11 +53,20 @@ function fillTable(eventList)
         cell2.innerHTML = prettyDate(event.date);
 		cell3.innerHTML = event.category;
 		cell4.innerHTML = event.type;
-		cell5.innerHTML = `<button type="button" onclick="viewMore(${event.eventId})">View More</button>`;
+		cell5.innerHTML = `<button type="button" onclick="viewPost(${event.eventId})">View More</button>`;
 	}
 }
 
-function viewMore(eventId)
+function checkPrivileges()
+{
+    let user = JSON.parse(sessionStorage.getItem("user"));
+    if (user.type === "Admin")
+    {
+        document.getElementById("rsoCreation").hidden = false;
+    }
+}
+
+function viewPost(eventId)
 {
     sessionStorage.setItem("eventId", eventId);
     window.location.href = "eventPost.html";

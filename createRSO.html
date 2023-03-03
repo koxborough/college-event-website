@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create RSO</title>
+        <script type="text/javascript" src="js/CreateRSO.js"></script>
+        <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
+    </head>
+    <body>
+        <label>Name of RSO</label>
+        <input id="name" type="text" placeholder="Name" maxlength="50" autofocus />
+        <br />
+        <label>Description of RSO</label>
+        <textarea id="description" rows="10" cols="30" maxlength="300" placeholder="Description"></textarea>
+        <span id="resultCreation"></span>
+        <button type="button" id="create" onclick="createRSO();">Create RSO</button>
+        <button type="button" onclick="window.location.href='events.html';">Go Back</button>
+    </body>
+    <script>
+        pressEnter(['name', 'description',], 'create');
+        sessionStorage.setItem("lineId", "resultCreation");
+    </script>
+</html>
