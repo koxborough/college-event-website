@@ -64,6 +64,10 @@ function checkPrivileges()
     {
         document.getElementById("rsoCreation").hidden = false;
     }
+    if (user.type === "SuperAdmin")
+    {
+        document.getElementById("univCreation").hidden = false;
+    }
 }
 
 function viewPost(eventId)
