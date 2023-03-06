@@ -18,7 +18,6 @@ else
     
     $searchResults = startEventData($strt_result->fetch_assoc());
     $searchCount = 0;
-    $extraInfo = "";
 
     $cmmt = $conn->prepare("SELECT U.name, C.text, C.rating, C.date, C.time FROM Comments C, Users U WHERE U.userId=C.userId AND C.eventId=?");
     $cmmt->bind_param("i", $eventId);
@@ -34,53 +33,52 @@ else
         $searchCount++;
         $searchResults .= '{"name":"'.$row["name"].'","text":"'.$row["text"].'","rating":'.$row["rating"].',"date":"'.$row["date"].'","time":"'.$row["time"].'"}';
     }
+    $searchResults .= "]";
 
-    if ($searchCount != 0)
+    $pub = $conn->prepare("SELECT COUNT(*) AS isPublic FROM PublicEvents WHERE PublicEvents.eventId=?");
+    $pub->bind_param("i", $eventId);
+    $pub->execute();
+    
+    $pub_result = $pub->get_result();
+    $pub_row = $pub_result->fetch_assoc();
+    if (!$pub_row["isPublic"])
     {
-        $pub = $conn->prepare("SELECT COUNT(*) AS isPublic FROM PublicEvents WHERE PublicEvents.eventId=?");
-        $pub->bind_param("i", $eventId);
-        $pub->execute();
+        $searchResults .= ",";
+        $priv = $conn->prepare("SELECT COUNT(*) AS isPrivate FROM PrivateEvents WHERE PrivateEvents.eventId=?");
+        $priv->bind_param("i", $eventId);
+        $priv->execute();
         
-        $pub_result = $pub->get_result();
-        $pub_row = $pub_result->fetch_assoc();
-        if (!$pub_row["isPublic"])
+        $priv_result = $priv->get_result();
+        $priv_row = $priv_result->fetch_assoc();
+        if ($priv_row["isPrivate"])
         {
-            $priv = $conn->prepare("SELECT COUNT(*) AS isPrivate FROM PrivateEvents WHERE PrivateEvents.eventId=?");
-            $priv->bind_param("i", $eventId);
-            $priv->execute();
-            
-            $priv_result = $priv->get_result();
-            $priv_row = $priv_result->fetch_assoc();
-            if ($priv_row["isPrivate"])
-            {
-                $more = $conn->prepare("SELECT U.name, U.description FROM Universities U, PrivateEvents E WHERE E.eventId=? AND E.universityId=U.universityId");
-                $more->bind_param("i", $eventId);
-                $more->execute();
+            $more = $conn->prepare("SELECT U.name, U.description FROM Universities U, PrivateEvents E WHERE E.eventId=? AND E.universityId=U.universityId");
+            $more->bind_param("i", $eventId);
+            $more->execute();
 
-                $more_result = $more->get_result();
-                $more_row = $more_result->fetch_assoc();
-                $extraInfo .= ',"univName":"'.$more_row["name"].'", "univDescription":"'.$more_row["description"].'"';
+            $more_result = $more->get_result();
+            $more_row = $more_result->fetch_assoc();
+            $searchResults .= '"univName":"'.$more_row["name"].'", "univDescription":"'.$more_row["description"].'"';
 
-                $more->close();
-            }
-            else
-            {
-                $more = $conn->prepare("SELECT RSO.name, RSO.description FROM RSOs RSO, RSOEvents RSOE WHERE RSOE.eventId=? AND RSOE.rsoId=RSO.rsoId");
-                $more->bind_param("i", $eventId);
-                $more->execute();
-
-                $more_result = $more->get_result();
-                $more_row = $more_result->fetch_assoc();
-                $extraInfo .= ',"rsoName":"'.$more_row["name"].'", "rsoDescription":"'.$more_row["description"].'"';
-
-                $more->close();
-            }
-            $priv->close();
+            $more->close();
         }
-        $pub->close();
-    }
+        else
+        {
+            $more = $conn->prepare("SELECT RSO.name, RSO.description FROM RSOs RSO, RSOEvents RSOE WHERE RSOE.eventId=? AND RSOE.rsoId=RSO.rsoId");
+            $more->bind_param("i", $eventId);
+            $more->execute();
 
-    $searchResults .= ']' . $extraInfo . '}';
+            $more_result = $more->get_result();
+            $more_row = $more_result->fetch_assoc();
+            $searchResults .= '"rsoName":"'.$more_row["name"].'", "rsoDescription":"'.$more_row["description"].'"';
+
+            $more->close();
+        }
+        $priv->close();
+    }
+    $pub->close();
+
+    $searchResults .= '}';
     sendResultInfoAsJson($searchResults);
 
     $cmmt->close();

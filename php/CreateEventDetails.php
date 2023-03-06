@@ -13,6 +13,7 @@ $address = $inData["address"];
 $longitude = $inData["longitude"];
 $latitude = $inData["latitude"];
 $type = $inData["type"];
+$specialId = $inData["specialId"];
 
 if ($conn->connect_error) 
 {
@@ -46,6 +47,17 @@ else
         $final->bind_param("ii", $eventId, $userId);
         $final->execute();
         $final->close();
+    }
+    else if ($type === "Private")
+    {
+        $final = $conn->prepare("INSERT INTO PrivateEvents (eventId, universityId, createdById) VALUES (?, ?, ?)");
+        $final->bind_param("iii", $eventId, $specialId, $userId);
+        $final->execute();
+        $final->close();
+    }
+    else
+    {
+        // type is "RSO"
     }
 
     $stmt->close();

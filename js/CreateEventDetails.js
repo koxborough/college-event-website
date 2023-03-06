@@ -1,5 +1,17 @@
 function createEventDetails()
 {
+    let type, specialId;
+    if (sessionStorage.getItem("eventType") === null)
+    {
+        type = "Public";
+        specialId = -1;
+    }
+    else
+    {
+        type = sessionStorage.getItem("eventType");
+        specialId = parseInt(sessionStorage.getItem("specialId"));
+    }
+
     let idList = ["title", "description", "date", "time", "category", "location", "address", "longitude", "latitude"];
     for (let id of idList)
     {
@@ -22,7 +34,8 @@ function createEventDetails()
         address: document.getElementById("address").value,
         longitude: document.getElementById("longitude").value,
         latitude: document.getElementById("latitude").value,
-        type: "Public"
+        type: type,
+        specialId: specialId
     };
 
     let xhr = new XMLHttpRequest();
@@ -32,7 +45,6 @@ function createEventDetails()
     {
         if (xhr.readyState === 4 && xhr.status === 200) 
         {
-            alert(xhr.responseText);
             let response = JSON.parse(xhr.responseText);
             if ("error" in response)
             {
@@ -41,9 +53,15 @@ function createEventDetails()
             else
             {
                 window.location.href = "events.html";
-            }
-            
+            }   
         }
     };
     xhr.send(JSON.stringify(data));
+}
+
+function goBack()
+{
+    sessionStorage.removeItem("specialId");
+    sessionStorage.removeItem("eventType");
+    window.location.href = "events.html";
 }
