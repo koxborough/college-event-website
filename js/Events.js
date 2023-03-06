@@ -65,6 +65,7 @@ function checkPrivileges()
         document.getElementById("rsoCreation").hidden = false;
         document.getElementById("createPubEvent").hidden = false;
         document.getElementById("createPrivEvent").hidden = false;
+        document.getElementById("createRSOEvent").hidden = false;
     }
     if (user.type === "SuperAdmin")
     {

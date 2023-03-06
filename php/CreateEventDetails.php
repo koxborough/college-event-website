@@ -57,7 +57,10 @@ else
     }
     else
     {
-        // type is "RSO"
+        $final = $conn->prepare("INSERT INTO RSOEvents (eventId, rsoId, createdById) VALUES (?, ?, ?)");
+        $final->bind_param("iii", $eventId, $specialId, $userId);
+        $final->execute();
+        $final->close();
     }
 
     $stmt->close();
