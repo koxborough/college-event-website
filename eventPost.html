@@ -5,7 +5,7 @@
         <script type="text/javascript" src="js/EventPost.js"></script>
         <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
-    <body id="body">
+    <body>
         <button type="button" onclick="window.location.href='events.html';">Go Back</button>
         <p id="title"></p>
         <p id="description"></p>
@@ -17,8 +17,18 @@
         <p id="rsoName"></p>
         <p id="rsoDescription"></p>
         <hr />
+        <div id="comments"></div>
+        <label>Text</label>
+        <textarea id="text" rows="10" cols="30" maxlength="300" placeholder="Text"></textarea>
+        <br />
+        <label>Rating</label>
+        <input id="rating" type="number" placeholder="2.5" step="0.01" min="0" max="5"/>
+        <span id="result"></span>
+        <button id="commentButton" type="button" onclick="addComment();">Add Comment</button>
     </body>
     <script>
+        pressEnter(['text', 'rating'], 'commentButton');
+        sessionStorage.setItem("lineId", "result");
         getEventPost();
     </script>
 </html>
