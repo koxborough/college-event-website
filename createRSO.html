@@ -15,11 +15,12 @@
             <input id="name" type="text" placeholder="Name" maxlength="50" autofocus />
             <br />
             <label>Description of RSO</label>
-            <textarea id="description" rows="10" cols="30" maxlength="300" placeholder="Description"></textarea>
+            <textarea id="description" rows="8" cols="30" maxlength="300" placeholder="Description"></textarea>
             <span class="fieldError" id="resultCreation"></span>
             <button type="button" class="login-button buttongreen" id="create" onclick="createRSO();">Create RSO</button>
             <button type="button" onclick="window.location.href='events.html';">Go Back</button>
         </main>
+        <br />
     </body>
     <script>
         pressEnter(['name', 'description',], 'create');

@@ -2,50 +2,53 @@
 <html>
     <head>
         <title>Create Event</title>
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="js/CreateEventDetails.js"></script>
         <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
     <body>
-        <label>Title</label>
-        <input id="title" type="text" placeholder="Name" maxlength="50" autofocus />
+        <main class="login-bubble">
+            <h2>Create Event</h2>
+            <label>Title</label>
+            <input id="title" type="text" placeholder="Name" maxlength="50" autofocus />
+    
+            <label>Description</label>
+            <textarea id="description" rows="8" cols="30" maxlength="300" placeholder="Description"></textarea>
+    
+            <label>Date</label>
+            <input id="date" type="date" value="2023-12-31" />
+    
+            <label>Time</label>
+            <input id="time" type="time" maxlength="5" value="12:00" />
+    
+            <label>Category</label>
+            <input id="category" type="text" placeholder="Category" maxlength="20" />
+
+            <div class="break"></div>
+
+            <label>Location</label>
+            <input id="location" type="text" placeholder="Location" maxlength="30" />
+    
+            <label>Address</label>
+            <input id="address" type="text" placeholder="Address" maxlength="100" />
+    
+            <label>Longitude</label>
+            <input id="longitude" type="number" placeholder="10.0" step="0.01" min="0" max="90" />
+    
+            <label>Latitude</label>
+            <input id="latitude" type="number" placeholder="10.0" step="0.01" min="0" max="90" />
+    
+            <span class="fieldError" id="resultCreation"></span>
+            <button type="button" class="login-button buttongreen" id="create" onclick="createEventDetails();">Create Event</button>
+            <button type="button" onclick="goBack();">Go Back</button>
+        </main>
         <br />
-
-        <label>Description</label>
-        <textarea id="description" rows="10" cols="30" maxlength="300" placeholder="Description"></textarea>
-        <br />
-
-        <label>Date</label>
-        <input id="date" type="date" value="2023-12-31" />
-        <br />
-
-        <label>Time</label>
-        <input id="time" type="time" maxlength="5" value="12:00" />
-        <br />
-
-        <label>Category</label>
-        <input id="category" type="text" placeholder="Category" maxlength="20" />
-        <hr />
-
-        <label>Location</label>
-        <input id="location" type="text" placeholder="Location" maxlength="30" />
-        <br />
-
-        <label>Address</label>
-        <input id="address" type="text" placeholder="Address" maxlength="100" />
-        <br />
-
-        <label>Longitude</label>
-        <input id="longitude" type="number" placeholder="10.0" step="0.01" min="0" max="90" />
-        <br />
-
-        <label>Latitude</label>
-        <input id="latitude" type="number" placeholder="10.0" step="0.01" min="0" max="90" />
-
-        <span id="resultCreation"></span>
-        <button type="button" id="create" onclick="createEventDetails();">Create Event</button>
-        <button type="button" onclick="goBack();">Go Back</button>
     </body>
     <script>
+        pressEnter(['title', 'description', 'date', 'time', 'category'], 'create');
+        pressEnter(['location', 'address', 'longitude', 'latitude'], 'create');
         sessionStorage.setItem("lineId", "resultCreation");
     </script>
 </html>

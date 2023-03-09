@@ -301,3 +301,9 @@
     border: 2px solid #bbb;
     outline: var(--focus-outline);
 }
+
+  .break {
+    margin: 20px 0px;
+    height: 1px;
+    border-bottom: 2.5px solid #808080;
+  }
