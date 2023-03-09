@@ -13,9 +13,9 @@
     --button: rgb(54, 120, 255);
     --button-hover: rgb(34, 100, 235);
     --button-click: rgb(4, 70, 205);
-    --button-cancel: rgb(214, 79, 79);
-    --button-cancel-hover: rgb(171, 63, 63);
-    --button-cancel-click: rgb(138, 50, 50);
+    --button-red: rgb(214, 79, 79);
+    --button-red-hover: rgb(171, 63, 63);
+    --button-red-click: rgb(138, 50, 50);
     --button-green: rgb(78, 173, 92);
     --button-green-hover: rgb(58, 153, 72);
     --button-green-click: rgb(38, 133, 52);
@@ -79,7 +79,7 @@
     filter: var(--shadow);
   }
   
-  .contactsmain {
+  .events-main {
     width: 800px;
   }
   
@@ -180,21 +180,21 @@
       background: var(--button-click);
   }
   
-  /* Cancel button styling */
-  .buttoncancel {
-      background: var(--button-cancel);
+  /* Red button styling */
+  .buttonred {
+      background: var(--button-red);
   }
   
-  .buttoncancel:focus {
-      background: var(--button-cancel-hover);
+  .buttonred:focus {
+      background: var(--button-red-hover);
   }
   
-  .buttoncancel:hover {
-      background: var(--button-cancel-hover);
+  .buttonred:hover {
+      background: var(--button-red-hover);
   }
   
-  .buttoncancel:active{
-      background: var(--button-cancel-click);
+  .buttonred:active{
+      background: var(--button-red-click);
   }
   
   /* Green button styling */
@@ -223,7 +223,7 @@
   }
   
   /* Table styling */
-  .contact-table {
+  .events-table {
     font-size: 16px;
     border-collapse: collapse;
     margin: 10px;

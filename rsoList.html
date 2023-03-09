@@ -2,19 +2,28 @@
 <html>
     <head>
         <title>RSO List</title>
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="js/RSOList.js"></script>
         <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
     <body>
-        <button type="button" onclick="window.location.href='events.html';">Go Back</button>
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-        </table>
+        <nav>
+            <ul id="navbar">
+                <li><a href="events.html">Go Back to Events List</a></li>
+            </ul>
+        </nav>
+        <main class="events-main">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </main>
     </body>
     <script>
         getRSOList();

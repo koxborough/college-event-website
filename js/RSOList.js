@@ -49,11 +49,11 @@ function fillTable(rsoList)
 		cell1.innerHTML = rso.name;
         if (rso.joined)
         {
-            cell2.innerHTML = `<button type="button" onclick="leaveRSO(${rso.rsoId})">Leave RSO</button>`;
+            cell2.innerHTML = `<button type="button" class="buttonred" onclick="leaveRSO(${rso.rsoId})">Leave RSO</button>`;
         }
         else
         {
-            cell2.innerHTML = `<button type="button" onclick="joinRSO(${rso.rsoId})">Join RSO</button>`;
+            cell2.innerHTML = `<button type="button" class="buttongreen" onclick="joinRSO(${rso.rsoId})">Join RSO</button>`;
         }
 	}
 }
