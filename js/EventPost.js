@@ -39,7 +39,9 @@ function headerInformation(response)
     {
         if (id in response)
         {
-            document.getElementById(id).innerHTML = `<strong>${targetedCapitalize(id)}:</strong> ${response[id]}`;
+            let element = document.getElementById(id);
+            element.hidden = false;
+            element.innerHTML = `<strong>${targetedCapitalize(id)}:</strong> ${response[id]}`;
         }
     }
 }
@@ -53,7 +55,7 @@ function appendComments(comments)
         {
             div.innerHTML += `<p><strong>${capitalize(id)}:</strong> ${comment[id]}</p>`;
         }
-        div.innerHTML += "<hr />";
+        div.innerHTML += '<div class="break"></div>';
         document.getElementById("comments").append(div);
     }
 }

@@ -2,29 +2,43 @@
 <html>
     <head>
         <title>Event Post</title>
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="js/EventPost.js"></script>
         <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
     <body>
-        <button type="button" onclick="window.location.href='events.html';">Go Back</button>
-        <p id="title"></p>
-        <p id="description"></p>
-        <p id="date"></p>
-        <p id="time"></p>
-        <p id="category"></p>
-        <p id="univName"></p>
-        <p id="univDescription"></p>
-        <p id="rsoName"></p>
-        <p id="rsoDescription"></p>
-        <hr />
-        <div id="comments"></div>
-        <label>Text</label>
-        <textarea id="text" rows="10" cols="30" maxlength="300" placeholder="Text"></textarea>
+        <nav>
+            <ul id="navbar">
+                <li><a href="events.html">Go Back to Events List</a></li>
+            </ul>
+        </nav>
+        <main class="events-main">
+            <h2>Event Post</h2>
+            <p id="title"></p>
+            <p id="description"></p>
+            <p id="date"></p>
+            <p id="time"></p>
+            <p id="category"></p>
+            <p id="univName" hidden></p>
+            <p id="univDescription" hidden></p>
+            <p id="rsoName" hidden></p>
+            <p id="rsoDescription" hidden></p>
+
+            <div class="break"></div>
+
+            <div id="comments"></div>
+            <h3>Add Comment</h3>
+            <label>Text</label>
+            <textarea id="text" rows="10" cols="30" maxlength="300" placeholder="Text"></textarea>
+            <label>Rating</label>
+            <input id="rating" type="number" placeholder="2.5" step="0.01" min="0" max="5"/>
+            <span id="result"></span>
+            <button class="login-button buttongreen" id="commentButton" type="button" onclick="addComment();">Add Comment</button>
+            <button class="login-button" type="button" onclick="window.location.href='events.html';">Go Back</button>
+        </main>
         <br />
-        <label>Rating</label>
-        <input id="rating" type="number" placeholder="2.5" step="0.01" min="0" max="5"/>
-        <span id="result"></span>
-        <button id="commentButton" type="button" onclick="addComment();">Add Comment</button>
     </body>
     <script>
         pressEnter(['text', 'rating'], 'commentButton');
