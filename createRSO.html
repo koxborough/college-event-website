@@ -2,18 +2,24 @@
 <html>
     <head>
         <title>Create RSO</title>
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="js/CreateRSO.js"></script>
         <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
     <body>
-        <label>Name of RSO</label>
-        <input id="name" type="text" placeholder="Name" maxlength="50" autofocus />
-        <br />
-        <label>Description of RSO</label>
-        <textarea id="description" rows="10" cols="30" maxlength="300" placeholder="Description"></textarea>
-        <span id="resultCreation"></span>
-        <button type="button" id="create" onclick="createRSO();">Create RSO</button>
-        <button type="button" onclick="window.location.href='events.html';">Go Back</button>
+        <main class="login-bubble">
+            <h2>Create an RSO</h2>
+            <label>Name of RSO</label>
+            <input id="name" type="text" placeholder="Name" maxlength="50" autofocus />
+            <br />
+            <label>Description of RSO</label>
+            <textarea id="description" rows="10" cols="30" maxlength="300" placeholder="Description"></textarea>
+            <span class="fieldError" id="resultCreation"></span>
+            <button type="button" class="login-button buttongreen" id="create" onclick="createRSO();">Create RSO</button>
+            <button type="button" onclick="window.location.href='events.html';">Go Back</button>
+        </main>
     </body>
     <script>
         pressEnter(['name', 'description',], 'create');
