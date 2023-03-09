@@ -2,18 +2,23 @@
 <html>
     <head>
         <title>Login</title>
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="js/Login.js"></script>
         <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
     <body>
-        <label>Username</label>
-        <input id="loginUsername" type="text" placeholder="Username" maxlength="20" autofocus />
-        <br />
-        <label>Password</label>
-        <input id="loginPassword" type="password" placeholder="Password" maxlength="20" />
-        <span id="loginResult"></span>
-        <button type="button" id="loginButton" onclick="doLogin();">Sign In</button>
-        <button type="button" onclick="window.location.href='register.html';">Don't have an account? Register</button>
+        <main class="login-bubble">
+            <h2>User Login</h2>
+            <label class="labelHeader">Username</label>
+            <input id="loginUsername" type="text" placeholder="Username" maxlength="20" autofocus />
+            <label class="labelHeader">Password</label>
+            <input id="loginPassword" type="password" placeholder="Password" maxlength="20" />
+            <span class="fieldError" id="loginResult"></span>
+            <button class="login-button buttongreen" type="button" id="loginButton" onclick="doLogin();">Sign In</button>
+            <button class="login-button" type="button" onclick="window.location.href='register.html';">Don't have an account? Register</button>
+        </main>
     </body>
     <script>
         pressEnter(['loginUsername', 'loginPassword'], 'loginButton');
