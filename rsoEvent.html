@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Events</title>
+        <title>Create RSO Event</title>
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="js/CreateRSOEvent.js"></script>
     </head>
     <body>
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>RSO</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-        </table>
-        <button type="button" onclick="window.location.href='events.html';">Go Back</button>
+        <nav>
+            <ul id="navbar">
+                <li><a href="events.html">Go Back to Events List</a></li>
+            </ul>
+        </nav>
+        <main class="events-main">
+            <h2>Create RSO Event</h2>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>RSO</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </main>
     </body>
     <script>
         getRSOs();
