@@ -216,20 +216,10 @@
   
   /* Nav styling */
   nav {
-    background-color: var(--header-bg);
-      color: var(--header-fg);
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-  }
-  
-  #searchcontact {
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 20px;
-      margin: auto;
-      width: 100%;
+    background-color: #333;
+    margin-bottom: -20px;
+    font-weight: 600;
+    font-size: large;
   }
   
   /* Table styling */
@@ -265,46 +255,31 @@
       font-family: 'Inter';
   }
   
-  /* Register user styles */
-  #modal-add, #modal-edit {
-    display: none; 
-    background-color: white;
-    border-radius: 0.6rem;
+  ul {
+    list-style-type: none;
+    padding: 10px 20px;
+    margin: 0;
     overflow: hidden;
-    position: fixed;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%); 
-      filter: var(--shadow);
+    background-color: #333;
   }
   
-  .modal-head {
-    background-color: var(--header-bg);
-    color: var(--header-fg);
-    padding: .8rem 1.2rem;
-    font-size: 1.5rem;
-    color: #fff;
-    position: relative; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  li {
+    float: left;
   }
   
-  /* Header text for the edit/add modal */
-  #modal-title {
-      color: var(--header-fg);
-    align-items: center;
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
   }
   
-  .modal-main {
-      margin: auto;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    max-width: 300px;
-    min-width: 300px; 
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
   }
-  
-  .modal-col {
-      display: flex;
-      flex-direction: column;
+
+  li:last-child {
+    float: right;
   }

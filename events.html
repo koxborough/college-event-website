@@ -2,31 +2,40 @@
 <html>
     <head>
         <title>Events</title>
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="js/Events.js"></script>
         <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
     <body>
-        <ul id="navbar">
-            <li><a href="rsoList.html">See RSO Membership</a></li>
-            <li id="rsoCreation" hidden><a href="createRSO.html">Create an RSO</a></li>
-            <li id="univCreation" hidden><a href="createUniv.html">Create a University</a></li>
-            <li id="createPubEvent" hidden><a href="createEvent.html">Create Public Event</a></li>
-            <li id="createPrivEvent" hidden><a href="privateEvent.html">Create Private Event</a></li>
-            <li id="createRSOEvent" hidden><a href="rsoEvent.html">Create RSO Event</a></li>
-            <li><a href="#" onclick="doLogout();">Logout</a></li>
-        </ul>
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Category</th>
-                    <th>Type</th>
-                    <th>More Info</th>
-                </tr>
-            </thead>
-        </table>
+        <nav>
+            <ul id="navbar">
+                <li><a href="rsoList.html">See RSO Membership</a></li>
+                <li id="rsoCreation" hidden><a href="createRSO.html">Create an RSO</a></li>
+                <li id="univCreation" hidden><a href="createUniv.html">Create a University</a></li>
+                <li id="createPubEvent" hidden><a href="createEvent.html">Create Public Event</a></li>
+                <li id="createPrivEvent" hidden><a href="privateEvent.html">Create Private Event</a></li>
+                <li id="createRSOEvent" hidden><a href="rsoEvent.html">Create RSO Event</a></li>
+                <li class="logout"><a href="#" onclick="doLogout();">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="contactsmain">
+            <h2>List of Events</h2>
+            <table class="contact-table" id="table">
+                <thead>
+                    <tr class="top-row">
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>More Info</th>
+                    </tr>
+                </thead>
+            </table>
+        </main>
     </body>
+    <br />
     <script>
         getAllEvents();
         checkPrivileges();
