@@ -31,6 +31,10 @@ function headerInformation(response)
     let basicInfo = ["title", "description", "date", "time", "category"];
     for (let id of basicInfo)
     {
+        if (id === "date")
+        {
+            response[id] = prettyDate(String(response[id]));
+        }
         document.getElementById(id).innerHTML = `<strong>${capitalize(id)}:</strong> ${response[id]}`;
     }
 
@@ -53,6 +57,10 @@ function appendComments(comments)
         let div = document.createElement("div");
         for (let id in comment)
         {
+            if (id === "date")
+            {
+                comment[id] = prettyDate(comment[id]);
+            }
             div.innerHTML += `<p><strong>${capitalize(id)}:</strong> ${comment[id]}</p>`;
         }
         div.innerHTML += '<div class="break"></div>';

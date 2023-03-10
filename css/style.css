@@ -1,314 +1,267 @@
 :root { 
-    font-family: 'Inter', sans-serif; 
-  }
-  
-  @supports (font-variation-settings: normal) {
-    :root { font-family: 'Inter var', sans-serif; }
-  }
-  
-  :root {
-    --bg: #fcf99a;
-    --fg: #000000;
-    --shadow: drop-shadow(0 5px 1rem #00000055);
-    --button: rgb(54, 120, 255);
-    --button-hover: rgb(34, 100, 235);
-    --button-click: rgb(4, 70, 205);
-    --button-red: rgb(214, 79, 79);
-    --button-red-hover: rgb(171, 63, 63);
-    --button-red-click: rgb(138, 50, 50);
-    --button-green: rgb(78, 173, 92);
-    --button-green-hover: rgb(58, 153, 72);
-    --button-green-click: rgb(38, 133, 52);
-    --focus-color: #1ba3f288;
-    --focus-outline: 3px solid var(--focus-color);
-    --header-bg: #878063;
-    --header-fg: white;
-    --table-color: #d5d3d3;
-    --line-color: #b9a450;
-  }
-  
-  html {
-    height: 100%;
-    margin: 0px;
-    background-image: repeating-linear-gradient(var(--bg) 0px, var(--bg) 23px, var(--line-color) 25px);
-    background-size: cover;
-    background-attachment: fixed;
-  }
-  
-  body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    background-color: var(--bg);
-    background: transparent;
-    display: inline-block;
-    font-family: 'Inter';
-    font-weight: 500;
-  }
-  
-  /* Header styling */
-  header {
-    background-color: var(--header-bg);
-    color: var(--header-fg);
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-  }
-  
-  img {
-    width: 48px;
-    height: 48px;
-    margin: 0 10px;
-  }
-  
-  /* Main section styling */
-  main {
-    display: flex;
-    flex-direction: column;
-    border-radius: 8px;
-    background: white;
-    padding: 20px;
-    margin: auto;
-    width: 600px;
-    height: auto;
-    margin-top: 50px;
-    filter: var(--shadow);
-  }
-  
-  .events-main {
-    width: 800px;
-  }
-  
-  .nav-left {
-    display: flex;
-    height: 60px;
-  }
-  
-  /* Login form styling */
-  form {
-    padding: 0px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 400px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter';
-  }
-  
-  label {
-    margin: 0px 10px;
-  }
-  
-  span {
-    margin: 0px 10px;
-  }
-  
-  .fieldError {
-    color: red;
-  }
-  
-  h2 {
-    margin: 10px 5px;
-      text-align: center;
-  }
-  
-  h3 {
-    margin: 5px 5px;
-      text-align: center;
-  }
-  
-  input {
-    padding: 12px 20px;
-      margin: 10px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    border: 2px solid #ddd;
-      font-size: medium;
-      font-family: 'Inter';
-      font-weight: 500;
-      caret-color: #555;
-  }
-  
-  input:focus {
-      border: 2px solid #bbb;
-      outline: var(--focus-outline);
-  }
-  
-  #searchbar {
-    width: 60%
-  }
-  
-  .search-button .reset-button {
-    width: 20%;
-  }
-  
-  ::selection {
-      background-color: var(--focus-color);
-      color: #000;
-  }
-  
-  /* Login button styling */
-  button {
-      background: var(--button);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: medium;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 10px;
-      font-family: 'Inter';
-      font-weight: 500;
-  }
-  
-  button:focus {
-      outline: var(--focus-outline);
-      background: var(--button-hover);
-  }
-  
-  button:hover {
-      background: var(--button-hover);
-  }
-  
-  button:active {
-      background: var(--button-click);
-  }
-  
-  /* Red button styling */
-  .buttonred {
-      background: var(--button-red);
-  }
-  
-  .buttonred:focus {
-      background: var(--button-red-hover);
-  }
-  
-  .buttonred:hover {
-      background: var(--button-red-hover);
-  }
-  
-  .buttonred:active{
-      background: var(--button-red-click);
-  }
-  
-  /* Green button styling */
-  .buttongreen {
-      background: var(--button-green);
-  }
-  
-  .buttongreen:focus {
-      background: var(--button-green-hover);
-  }
-  
-  .buttongreen:hover {
-      background: var(--button-green-hover);
-  }
-  
-  .buttongreen:active{
-      background: var(--button-green-click);
-  }
-  
-  /* Nav styling */
-  nav {
-    background-color: #333;
-    margin-bottom: -20px;
-    font-weight: 600;
-    font-size: large;
-  }
-  
-  /* Table styling */
-  .events-table {
-    font-size: 16px;
-    border-collapse: collapse;
-    margin: 10px;
-  }
-  
-  th, td {
-    border: 1px dashed var(--table-color);
-    padding: 12px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #87637c;
-    color: white;
-  }
-  
-  .top-row {
-    font-weight: 600;
-    font-size: large;
-  }
-  
-  /* Edit and delete button styling */
-  .edit-button, .delete-button {
-    padding: 5px 10px;
-    margin: auto;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-      font-family: 'Inter';
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 10px 20px;
-    margin: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-    background-color: #111;
-  }
+  font-family: 'Inter', sans-serif; 
+}
 
-  li:last-child {
-    float: right;
-  }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
 
-  textarea {
-    padding: 12px 20px;
-    margin: 10px;
-    font-size: medium;
-      font-family: 'Inter';
-      font-weight: 500;
-      caret-color: #555;
-      box-sizing: border-box;
-    border-radius: 4px;
-    border: 2px solid #ddd;
-    resize: none;
-  }
+:root {
+  --bg: #fcf99a;
+  --fg: #000000;
+  --shadow: drop-shadow(0 5px 1rem #00000055);
+  --button: rgb(54, 120, 255);
+  --button-hover: rgb(34, 100, 235);
+  --button-click: rgb(4, 70, 205);
+  --button-red: rgb(214, 79, 79);
+  --button-red-hover: rgb(171, 63, 63);
+  --button-red-click: rgb(138, 50, 50);
+  --button-green: rgb(78, 173, 92);
+  --button-green-hover: rgb(58, 153, 72);
+  --button-green-click: rgb(38, 133, 52);
+  --focus-color: #1ba3f288;
+  --focus-outline: 3px solid var(--focus-color);
+  --header-bg: #878063;
+  --header-fg: white;
+  --table-color: #d5d3d3;
+  --line-color: #b9a450;
+}
 
-  textarea:focus {
+html {
+  height: 100%;
+  margin: 0px;
+  background-image: repeating-linear-gradient(var(--bg) 0px, var(--bg) 23px, var(--line-color) 25px);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: var(--bg);
+  background: transparent;
+  display: inline-block;
+  font-family: 'Inter';
+  font-weight: 500;
+}
+
+header {
+  background-color: var(--header-bg);
+  color: var(--header-fg);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background: white;
+  padding: 20px;
+  margin: auto;
+  width: 600px;
+  height: auto;
+  margin-top: 50px;
+  filter: var(--shadow);
+}
+
+.events-main {
+  width: 800px;
+}
+
+label {
+  margin: 0px 10px;
+}
+
+span {
+  margin: 0px 10px;
+}
+
+.fieldError {
+  color: red;
+}
+
+h2 {
+  margin: 10px 5px;
+  text-align: center;
+}
+
+h3 {
+  margin: 5px 5px;
+  text-align: center;
+}
+
+input {
+  padding: 12px 20px;
+  margin: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  font-size: medium;
+  font-family: 'Inter';
+  font-weight: 500;
+  caret-color: #555;
+}
+
+input:focus {
     border: 2px solid #bbb;
     outline: var(--focus-outline);
 }
 
-  .break {
-    margin: 20px 0px;
-    height: 1px;
-    border-bottom: 2.5px solid #808080;
-  }
+::selection {
+    background-color: var(--focus-color);
+    color: #000;
+}
 
-  p {
-    margin: 10px 0px;
-    padding: 0px 10px;
-  }
+button {
+  background: var(--button);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: medium;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+  font-family: 'Inter';
+  font-weight: 500;
+}
+
+button:focus {
+  outline: var(--focus-outline);
+  background: var(--button-hover);
+}
+
+button:hover {
+  background: var(--button-hover);
+}
+
+button:active {
+  background: var(--button-click);
+}
+
+/* Red button styling */
+.buttonred {
+  background: var(--button-red);
+}
+
+.buttonred:focus {
+  background: var(--button-red-hover);
+}
+
+.buttonred:hover {
+  background: var(--button-red-hover);
+}
+
+.buttonred:active{
+  background: var(--button-red-click);
+}
+
+/* Green button styling */
+.buttongreen {
+  background: var(--button-green);
+}
+
+.buttongreen:focus {
+  background: var(--button-green-hover);
+}
+
+.buttongreen:hover {
+  background: var(--button-green-hover);
+}
+
+.buttongreen:active{
+  background: var(--button-green-click);
+}
+
+nav {
+  background-color: #333;
+  margin-bottom: -20px;
+  font-weight: 600;
+  font-size: large;
+}
+
+.events-table {
+  font-size: 16px;
+  border-collapse: collapse;
+  margin: 10px;
+}
+
+th, td {
+  border: 1px dashed var(--table-color);
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #87637c;
+  color: white;
+}
+
+.top-row {
+  font-weight: 600;
+  font-size: large;
+}
+
+ul {
+  list-style-type: none;
+  padding: 10px 20px;
+  margin: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+li:last-child {
+  float: right;
+}
+
+textarea {
+  padding: 12px 20px;
+  margin: 10px;
+  font-size: medium;
+  font-family: 'Inter';
+  font-weight: 500;
+  caret-color: #555;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  resize: none;
+}
+
+textarea:focus {
+  border: 2px solid #bbb;
+  outline: var(--focus-outline);
+}
+
+.break {
+  margin: 20px 0px;
+  height: 1px;
+  border-bottom: 2.5px solid #808080;
+}
+
+p {
+  margin: 10px 0px;
+  padding: 0px 10px;
+}
