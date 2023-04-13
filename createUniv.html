@@ -2,18 +2,30 @@
 <html>
     <head>
         <title>Create University</title>
+        <link rel="preconnect" href="https://rsms.me/">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="css/style.css" />
         <script type="text/javascript" src="js/CreateUniv.js"></script>
         <script type="text/javascript" src="js/InterfaceFeatures.js"></script>
     </head>
     <body>
-        <label>Name of University</label>
-        <input id="name" type="text" placeholder="Name" maxlength="50" autofocus />
-        <br />
-        <label>Description of University</label>
-        <textarea id="description" rows="10" cols="30" maxlength="300" placeholder="Description"></textarea>
-        <span id="resultCreation"></span>
-        <button type="button" id="create" onclick="createUniv();">Create University</button>
-        <button type="button" onclick="window.location.href='events.html';">Go Back</button>
+        <nav>
+            <ul id="navbar">
+                <li><a href="events.html">Go Back to Events List</a></li>
+            </ul>
+        </nav>
+        <main class="login-bubble">
+            <h2>Create University</h2>
+            <label>Name of University</label>
+            <input id="name" type="text" placeholder="Name" maxlength="50" autofocus />
+            
+            <label>Description of University</label>
+            <textarea id="description" rows="10" cols="30" maxlength="300" placeholder="Description"></textarea>
+
+            <span id="resultCreation"></span>
+            <button type="button" id="create" class="login-button buttongreen" onclick="createUniv();">Create University</button>
+            <button type="button" onclick="window.location.href='events.html';">Go Back</button>
+        </main>
     </body>
     <script>
         pressEnter(['name', 'description',], 'create');
